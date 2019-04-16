@@ -58,6 +58,8 @@ public class PepGenomeTask extends Task {
 
         String[] peptideInputFilePaths = Utils.tokenize(this.fileStr, ",", true);
 
+        if(mmMode && numberMisMatches > 0 && numberMisMatches <= 2)
+            GenomeMapper.PEPTIDE_MAPPER.ALLOWED_MISMATCHES = numberMisMatches;
 
         boolean inMemory = true;
 
@@ -71,7 +73,7 @@ public class PepGenomeTask extends Task {
 
         try {
             if (fastaStr != null) {
-                log.info("reading genome FASTA: " + fastaStr);
+                log.info("Reading genome FASTA: " + fastaStr);
                 GenomeFastaParser.readGenomeFASTA(fastaStr);
             }
 

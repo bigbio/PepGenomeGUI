@@ -87,7 +87,7 @@ public class PepGenomeController implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
 
         ObservableList<Integer> mmValues = FXCollections.observableArrayList();
-        for (int i = 0; i <= 3; i++) {
+        for (int i = 0; i < 3; i++) {
             mmValues.add(i);
         }
         numComboBox.setItems(mmValues);
@@ -182,9 +182,14 @@ public class PepGenomeController implements Initializable {
 
     public void startMapping(ActionEvent actionEvent) {
 
-        PepGenomeTask task = new PepGenomeTask(openTextField.getText(), fastaTextFile.getText(), gtfTextFile.getText(), mismatchCheckBox.isSelected(), 0,
-                chrCheck.isSelected(), mergeOutput.isSelected(), gtfCheck.isSelected(),
-                pepBedCheck.isSelected(), gctCheck.isSelected(), ptmBedCheck.isSelected());
+        Boolean gtf = (allCheck.isSelected() || gtfCheck.isSelected())? true:false;
+        Boolean bed = (allCheck.isSelected() || pepBedCheck.isSelected())? true:false;
+        Boolean ptmBed = (allCheck.isSelected() || ptmBedCheck.isSelected())? true:false;
+        Boolean gct = (allCheck.isSelected() || gctCheck.isSelected())? true:false;
+
+        PepGenomeTask task = new PepGenomeTask(openTextField.getText(), fastaTextFile.getText(), gtfTextFile.getText(), mismatchCheckBox.isSelected(), Integer.parseInt(numComboBox.getSelectionModel().getSelectedItem().toString()),
+                chrCheck.isSelected(), mergeOutput.isSelected(), gtf,
+                bed, gct, ptmBed);
 
         progressBar.progressProperty().bind(task.progressProperty());
 
