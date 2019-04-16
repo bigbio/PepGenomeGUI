@@ -4,12 +4,17 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.layout.StackPane;
+import javafx.scene.layout.VBox;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import java.io.File;
+import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -95,7 +100,17 @@ public class PepGenomeController implements Initializable {
         stage.close();
     }
 
-    public void onAboutButton(ActionEvent actionEvent) {
+    public void onAboutButton(ActionEvent actionEvent) throws IOException {
+
+        VBox root = (VBox) FXMLLoader.load(getClass().getClassLoader().getResource("view/about.fxml"));
+        Scene scene = new Scene(root, 498, 187);
+
+        Stage stage = new Stage();
+        stage.setTitle("About");
+        stage.setScene(scene);
+        stage.show();
+
+
 
     }
 
