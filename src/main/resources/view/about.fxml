@@ -11,7 +11,7 @@
     <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="170.0" prefWidth="445.0" VBox.vgrow="ALWAYS">
       <children>
             <Label layoutX="14.0" layoutY="23.0" text="PepGenome Tool: Mapping proteomics information into genome coordinates" />
-            <Button fx:id="closeBtn" layoutX="431.0" layoutY="146.0" mnemonicParsing="false" text="Close" onAction="#onCloseWindow"/>
+            <Button fx:id="closeBtn" layoutX="431.0" layoutY="146.0" mnemonicParsing="false" onAction="#onCloseWindow" text="Close" />
             <Label layoutX="14.0" layoutY="50.0" text="Version: 1.0.0" />
             <Label layoutX="116.0" layoutY="50.0" text="Date: 05/2019" />
             <Label layoutX="14.0" layoutY="94.0" text="Authors: Yasset Perez-Riverol, Chakradhar Bandla, Christoph N. Schlaffner" />

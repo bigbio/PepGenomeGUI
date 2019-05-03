@@ -1,6 +1,5 @@
 package org.bigbio.pgatk.pepgenome.gui;
 
-import com.sun.org.apache.xpath.internal.operations.Bool;
 import javafx.concurrent.Task;
 import org.apache.log4j.Logger;
 import org.bigbio.pgatk.pepgenome.CoordinateWrapper;
@@ -110,7 +109,6 @@ public class PepGenomeTask extends Task {
                 filename_mm_postfix = ss.toString();
             }
 
-            String[] var52 = peptideInputFilePaths;
             int var27 = peptideInputFilePaths.length;
 
             String source = "PoGo";
@@ -124,7 +122,7 @@ public class PepGenomeTask extends Task {
             PepGenomeTool.INPUT_FILE_FORMAT fileFormat = PepGenomeTool.INPUT_FILE_FORMAT.MZTAB;
 
             for(int var28 = 0; var28 < var27; ++var28) {
-                path7 = var52[var28];
+                path7 = peptideInputFilePaths[var28];
                 log.info(path7);
                 path8 = path7;
                 if (path7.endsWith(".txt")) {

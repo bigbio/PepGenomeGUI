@@ -9,7 +9,6 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
-import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
@@ -182,10 +181,10 @@ public class PepGenomeController implements Initializable {
 
     public void startMapping(ActionEvent actionEvent) {
 
-        Boolean gtf = (allCheck.isSelected() || gtfCheck.isSelected())? true:false;
-        Boolean bed = (allCheck.isSelected() || pepBedCheck.isSelected())? true:false;
-        Boolean ptmBed = (allCheck.isSelected() || ptmBedCheck.isSelected())? true:false;
-        Boolean gct = (allCheck.isSelected() || gctCheck.isSelected())? true:false;
+        Boolean gtf = allCheck.isSelected() || gtfCheck.isSelected();
+        Boolean bed = allCheck.isSelected() || pepBedCheck.isSelected();
+        Boolean ptmBed = allCheck.isSelected() || ptmBedCheck.isSelected();
+        Boolean gct = allCheck.isSelected() || gctCheck.isSelected();
 
         PepGenomeTask task = new PepGenomeTask(openTextField.getText(), fastaTextFile.getText(), gtfTextFile.getText(), mismatchCheckBox.isSelected(), Integer.parseInt(numComboBox.getSelectionModel().getSelectedItem().toString()),
                 chrCheck.isSelected(), mergeOutput.isSelected(), gtf,
